@@ -1,10 +1,6 @@
 #include <iostream>
-
-// LEARN: what are namespaces
-// LEARN: how cout works
-// LEARN: what are << in c++
-// LEARN: how endl is writen here
-// TODO: should I strip from spaces args?
+using std::cout;
+using std::endl;
 
 bool	is_alpha(char c)
 {
@@ -35,17 +31,15 @@ char	to_upper(char c)
 int		main(int argc, char **argv)
 {
 	if (argc < 2) {
-		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
+		cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << endl;
 	}
 	else {
 		for (int i = 1; i < argc; i++) {
 			for (int j = 0; argv[i][j]; j++) {
-				std::cout << to_upper(argv[i][j]);
+				cout << to_upper(argv[i][j]);
 			}
-			if (i != argc - 1)
-				std::cout << " ";
 		}
-		std::cout << std::endl;
+		cout << endl;
 	}
 	return (0);
 }

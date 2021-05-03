@@ -10,15 +10,22 @@ NO_COLOR = \033[0m
 
 all: $(NAME)
 
+shout_assemble:
+	@echo "$(GREEN)Assembling$(NO_COLOR)"
+
+shout_clean:
+	@echo "$(RED)Cleaning$(NO_COLOR)"
+
+shout_test:
+	@echo "$(ORANGE)Testing$(NO_COLOR)"
+
 %.o: %.cpp
 	clang++ $(FLAGS) -o $@ -c $<
 
-$(NAME): $(OBJ)
-	@echo "$(GREEN)Assembling$(NO_COLOR)"
+$(NAME): shout_assemble $(OBJ)
 	clang++ $(FLAGS) -o $(NAME) $(OBJ)
 
-clean:
-	@echo "$(RED)Cleaning$(NO_COLOR)"
+clean: shout_clean
 	rm -f $(OBJ)
 
 fclean: clean
@@ -26,8 +33,7 @@ fclean: clean
 
 re: fclean all
 
-test:
-	@echo "$(ORANGE)Testing$(NO_COLOR)"
+test: shout_test
 	./megaphone "shhhhh... I think the students are asleep..."
 	@echo
 	./megaphone Damnit " ! " "Sorry students, I thought this thing was off."
