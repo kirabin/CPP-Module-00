@@ -1,6 +1,7 @@
 NAME = phonebook
 FLAGS = -Wall -Wextra -Werror
-SRC = phonebook.cpp Contact.cpp
+SRC = Contact.class.cpp Phonebook.class.cpp main.cpp
+INC = Contact.class.hpp Phonebook.class.hpp
 OBJ = $(SRC:.cpp=.o)
 
 RED = \033[31m
@@ -19,10 +20,11 @@ shout_clean:
 shout_test:
 	@echo "$(ORANGE)Testing$(NO_COLOR)"
 
-%.o: %.cpp
+%.o: %.cpp $(INC)
 	clang++ $(FLAGS) -o $@ -c $<
 
-$(NAME): shout_assemble $(OBJ)
+$(NAME):  $(OBJ)
+	@echo "$(GREEN)Assembling$(NO_COLOR)"
 	clang++ $(FLAGS) -o $(NAME) $(OBJ)
 
 clean: shout_clean
