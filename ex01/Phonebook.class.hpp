@@ -14,7 +14,6 @@ class	Phonebook {
 
 public:
 	Phonebook();
-	~Phonebook();
 
 	bool	add_new_contact();
 	void	show_contacts();
@@ -24,11 +23,5 @@ private:
 	int			contacts_number;
 	Contact		contacts[8];
 };
-
-// enum Command {exit, add, search};
-
-
-// enum Search_field {index, first_name, last_name, nickname};
-
 
 #endif

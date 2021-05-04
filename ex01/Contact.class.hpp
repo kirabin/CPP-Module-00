@@ -9,12 +9,12 @@ using std::cin;
 using std::endl;
 using std::string;
 using std::setw;
+using std::getline;
 
 class Contact {
 
 public:
 	Contact();
-	~Contact();
 
 	void	show_contact();
 	void	show_all_info();
@@ -24,20 +24,27 @@ private:
 
 	string	_truncate_string(string s);
 
-	static int	instances;
-
+	string	info[11];
 	int		index;
-	string	first_name;
-	string	last_name;
-	string	nickname;
-	string	login;
-	string	postal_address;
-	string	email_address;
-	string	birthday;
-	string	date;
-	string	favorite_meal;
-	string	underwear_color;
-	string	darkest_secret;
+
+	static int		instances;
+	static string	_fields[11];
+
+	enum Fields {
+		first_name,
+		last_name,
+		nickname,
+		login,
+		postal_address,
+		email_address,
+		birthday,
+		date,
+		favorite_meal,
+		underwear_color,
+		darkest_secret,
+		first_field = first_name,
+		last_field = darkest_secret
+	};
 };
 
 #endif

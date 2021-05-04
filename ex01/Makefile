@@ -24,7 +24,7 @@ shout_test:
 	clang++ $(FLAGS) -o $@ -c $<
 
 $(NAME):  $(OBJ)
-	@echo "$(GREEN)Assembling$(NO_COLOR)"
+	@make shout_assemble
 	clang++ $(FLAGS) -o $(NAME) $(OBJ)
 
 clean: shout_clean

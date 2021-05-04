@@ -1,13 +1,25 @@
 #include "Contact.class.hpp"
 
+string	Contact::_fields[11] = {
+	"first name",
+	"last name",
+	"nickname",
+	"login",
+	"postal address",
+	"email address",
+	"birthday",
+	"date",
+	"favorite meal",
+	"underwear color",
+	"darkest secret"
+};
+
 Contact::Contact() {
 	this->index = instances;
 	Contact::instances++;
-	cout << "Creating contact instance" << endl;
-}
-
-Contact::~Contact() {
-	cout << "Destroying contact instance" << endl;
+	for (int i = first_field; i <= last_field; i++) {
+		this->info[i] = "(none)";
+	}
 }
 
 string	Contact::_truncate_string(string s) {
@@ -19,41 +31,32 @@ string	Contact::_truncate_string(string s) {
 }
 
 void	Contact::fill_contact() {
-	cout << "first name: ";
-	cin >> this->first_name;
-	cin.ignore(10000, '\n');
-	cout << "last name: ";
-	cin >> this->last_name;
-	cin.ignore(10000, '\n');
-	cout << "nickname: ";
-	cin >> this->nickname;
-	cin.ignore(10000, '\n');
+
+	for (int i = first_field; i <= last_field; i++) {
+		cout << Contact::_fields[i] << ": ";
+		// cin >> this->info[i];
+		getline(cin, this->info[i]);
+		if (cin.eof())  // TODO: should I handle EOF?
+			exit(0);
+	}
 }
 
 void	Contact::show_contact() {
 	cout << "|";
 	cout << setw(10) << this->index;
 	cout << "|";
-	cout << setw(10) << _truncate_string(this->first_name);
+	cout << setw(10) << _truncate_string(this->info[first_name]);
 	cout << "|";
-	cout << setw(10) << _truncate_string(this->last_name);
+	cout << setw(10) << _truncate_string(this->info[last_name]);
 	cout << "|";
-	cout << setw(10) << _truncate_string(this->nickname);
+	cout << setw(10) << _truncate_string(this->info[nickname]);
 	cout << "|" << endl;
 }
 
 void	Contact::show_all_info() {
-	cout << "first name: " << this->first_name << endl;
-	cout << "last name: " << this->last_name << endl;
-	cout << "nickname: " << this->nickname << endl;
-	cout << "login: " << this->login << endl;
-	cout << "postal address: " << this->postal_address << endl;
-	cout << "email address: " << this->email_address << endl;
-	cout << "birthday: " << this->birthday << endl;
-	cout << "date: " << this->date << endl;
-	cout << "favorite meal: " << this->favorite_meal << endl;
-	cout << "underwear color: " << this->underwear_color << endl;
-	cout << "darkest secret: " << this->darkest_secret << endl;
+	for (int i = first_field; i <= last_field; i++) {
+		cout << Contact::_fields[i] << ": " << this->info[i] << endl;
+	}
 }
 
 int		Contact::instances = 0;

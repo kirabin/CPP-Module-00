@@ -1,12 +1,6 @@
 #include "Phonebook.class.hpp"
 
-Phonebook::Phonebook() : contacts_number(0) {
-	cout << "Creating Phonebook" << endl;
-}
-
-Phonebook::~Phonebook() {
-	cout << "Destroying Phonebook" << endl;
-}
+Phonebook::Phonebook() : contacts_number(0) {}
 
 bool	Phonebook::add_new_contact() {
 	if (this->contacts_number < 8) {
@@ -32,13 +26,11 @@ void	Phonebook::search_contact() {
 
 	cout << "Index: ";
 	cin >> index;
-	cin.clear();
-	cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-	if (index < this->contacts_number) {
+	if (!cin.fail() && index < this->contacts_number) {
 		this->contacts[index].show_all_info();
 	} else {
 		cout << "Error: " << ": no such index exists" << endl;
 	}
-	// is index exists
-	// show contact by index line by line
+	cin.clear();
+	cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 }
