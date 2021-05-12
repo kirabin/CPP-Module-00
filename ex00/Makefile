@@ -1,31 +1,19 @@
-NAME = megaphone
-FLAGS = -Wall -Wextra -Werror
-SRC = megaphone.cpp
-OBJ = $(SRC:.cpp=.o)
-
-RED = \033[31m
-GREEN = \033[32m
-ORANGE = \033[93m
-NO_COLOR = \033[0m
+NAME	=	megaphone
+COMPILER=	clang++
+FLAGS	=	-Wall -Wextra -Werror
+SRC		=	megaphone.cpp
+INC		=
+OBJ		=	$(SRC:.cpp=.o)
 
 all: $(NAME)
 
-shout_assemble:
-	@echo "$(GREEN)Assembling$(NO_COLOR)"
+%.o: %.cpp $(INC)
+	$(COMPILER) $(FLAGS) -o $@ -c $<
 
-shout_clean:
-	@echo "$(RED)Cleaning$(NO_COLOR)"
+$(NAME):  $(OBJ)
+	$(COMPILER) $(FLAGS) -o $(NAME) $(OBJ)
 
-shout_test:
-	@echo "$(ORANGE)Testing$(NO_COLOR)"
-
-%.o: %.cpp
-	clang++ $(FLAGS) -o $@ -c $<
-
-$(NAME): shout_assemble $(OBJ)
-	clang++ $(FLAGS) -o $(NAME) $(OBJ)
-
-clean: shout_clean
+clean:
 	rm -f $(OBJ)
 
 fclean: clean
@@ -33,7 +21,7 @@ fclean: clean
 
 re: fclean all
 
-test: shout_test
+test:
 	./megaphone "shhhhh... I think the students are asleep..."
 	@echo
 	./megaphone Damnit " ! " "Sorry students, I thought this thing was off."

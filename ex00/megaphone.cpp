@@ -1,6 +1,4 @@
 #include <iostream>
-using std::cout;
-using std::endl;
 
 bool	is_alpha(char c)
 {
@@ -31,15 +29,15 @@ char	to_upper(char c)
 int		main(int argc, char **argv)
 {
 	if (argc < 2) {
-		cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << endl;
+		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
 	}
 	else {
 		for (int i = 1; i < argc; i++) {
 			for (int j = 0; argv[i][j]; j++) {
-				cout << to_upper(argv[i][j]);
+				std::cout << to_upper(argv[i][j]);
 			}
 		}
-		cout << endl;
+		std::cout << std::endl;
 	}
 	return (0);
 }

@@ -1,13 +1,13 @@
-NAME = phonebook
-FLAGS = -Wall -Wextra -Werror
-SRC = Contact.cpp Phonebook.cpp main.cpp
-INC = Contact.hpp Phonebook.hpp
-OBJ = $(SRC:.cpp=.o)
+NAME	=	phonebook
+FLAGS	=	-Wall -Wextra -Werror
+SRC		=	Contact.cpp Phonebook.cpp main.cpp
+INC		=	Contact.hpp Phonebook.hpp
+OBJ		=	$(SRC:.cpp=.o)
 
-RED = \033[31m
-GREEN = \033[32m
-ORANGE = \033[93m
-NO_COLOR = \033[0m
+RED			=	\033[31m
+GREEN		=	\033[32m
+ORANGE		=	\033[93m
+NO_COLOR	=	\033[0m
 
 all: $(NAME)
 

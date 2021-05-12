@@ -5,11 +5,6 @@
 # include <iomanip>
 # include "Contact.hpp"
 
-// using std::cout;
-// using std::cin;
-// using std::endl;
-// using std::string;
-
 class	Phonebook {
 
 public:
