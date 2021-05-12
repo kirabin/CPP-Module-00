@@ -1,6 +1,10 @@
 #include "Contact.hpp"
 
-string	Contact::_fields[11] = {
+int				Contact::_instances = 0;
+const int		Contact::_first_field= 0;
+const int		Contact::_last_field = 10;
+
+const std::string	Contact::_fields[11] = {
 	"first name",
 	"last name",
 	"nickname",
@@ -15,14 +19,14 @@ string	Contact::_fields[11] = {
 };
 
 Contact::Contact() {
-	this->index = instances;
-	Contact::instances++;
-	for (int i = first_field; i <= last_field; i++) {
-		this->info[i] = "(none)";
+	this->_index = Contact::_instances;
+	Contact::_instances++;
+	for (int i = Contact::_first_field; i <= Contact::_last_field; i++) {
+		this->_info[i] = "(none)";
 	}
 }
 
-string	Contact::_truncate_string(string s) {
+std::string	Contact::_truncate_string(std::string s) {
 	if (s.length() <= 10) {
 		return s;
 	} else {
@@ -31,32 +35,28 @@ string	Contact::_truncate_string(string s) {
 }
 
 void	Contact::fill_contact() {
-
-	for (int i = first_field; i <= last_field; i++) {
-		cout << Contact::_fields[i] << ": ";
-		// cin >> this->info[i];
-		getline(cin, this->info[i]);
-		if (cin.eof())  // TODO: should I handle EOF?
+	for (int i = Contact::_first_field; i <= Contact::_last_field; i++) {
+		std::cout << Contact::_fields[i] << ": ";
+		getline(std::cin, this->_info[i]);
+		if (std::cin.eof())
 			exit(0);
 	}
 }
 
 void	Contact::show_contact() {
-	cout << "|";
-	cout << setw(10) << this->index;
-	cout << "|";
-	cout << setw(10) << _truncate_string(this->info[first_name]);
-	cout << "|";
-	cout << setw(10) << _truncate_string(this->info[last_name]);
-	cout << "|";
-	cout << setw(10) << _truncate_string(this->info[nickname]);
-	cout << "|" << endl;
+	std::cout << "|";
+	std::cout << std::setw(10) << this->_index;
+	std::cout << "|";
+	std::cout << std::setw(10) << _truncate_string(this->_info[0]);
+	std::cout << "|";
+	std::cout << std::setw(10) << _truncate_string(this->_info[1]);
+	std::cout << "|";
+	std::cout << std::setw(10) << _truncate_string(this->_info[2]);
+	std::cout << "|" << std::endl;
 }
 
 void	Contact::show_all_info() {
-	for (int i = first_field; i <= last_field; i++) {
-		cout << Contact::_fields[i] << ": " << this->info[i] << endl;
+	for (int i = Contact::_first_field; i <= Contact::_last_field; i++) {
+		std::cout << Contact::_fields[i] << ": " << this->_info[i] << std::endl;
 	}
 }
-
-int		Contact::instances = 0;

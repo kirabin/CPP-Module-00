@@ -14,8 +14,8 @@ bool	Phonebook::add_new_contact() {
 }
 
 void	Phonebook::show_contacts() {
-	cout << "_____________________________________________" << endl;
-	cout << "|     index|first name| last name|  nickname|" << endl;
+	std::cout << "_____________________________________________" << std::endl;
+	std::cout << "|     index|first name| last name|  nickname|" << std::endl;
 	for (int i=0; i < this->contacts_number; i++) {
 		this->contacts[i].show_contact();
 	}
@@ -24,13 +24,13 @@ void	Phonebook::show_contacts() {
 void	Phonebook::search_contact() {
 	int		index;
 
-	cout << "Index: ";
-	cin >> index;
-	if (!cin.fail() && index < this->contacts_number) {
+	std::cout << "Index: ";
+	std::cin >> index;
+	if (!std::cin.fail() && index < this->contacts_number) {
 		this->contacts[index].show_all_info();
 	} else {
-		cout << "Error: " << ": no such index exists" << endl;
+		std::cout << "Error: " << ": no such index exists" << std::endl;
 	}
-	cin.clear();
-	cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+	std::cin.clear();
+	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 }

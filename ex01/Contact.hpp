@@ -4,13 +4,6 @@
 # include <string.h>
 # include <iomanip>
 
-using std::cout;
-using std::cin;
-using std::endl;
-using std::string;
-using std::setw;
-using std::getline;
-
 class Contact {
 
 public:
@@ -22,29 +15,15 @@ public:
 
 private:
 
-	string	_truncate_string(string s);
+	std::string	_truncate_string(std::string s);
 
-	string	info[11];
-	int		index;
+	std::string	_info[11];
+	int		_index;
 
-	static int		instances;
-	static string	_fields[11];
-
-	enum Fields {
-		first_name,
-		last_name,
-		nickname,
-		login,
-		postal_address,
-		email_address,
-		birthday,
-		date,
-		favorite_meal,
-		underwear_color,
-		darkest_secret,
-		first_field = first_name,
-		last_field = darkest_secret
-	};
+	static int				_instances;
+	static const int		_first_field;
+	static const int		_last_field;
+	static const std::string		_fields[11];
 };
 
 #endif

@@ -1,18 +1,18 @@
 #include "Phonebook.hpp"
 #include "Contact.hpp"
 
-string	get_command() {
-	string	command;
+std::string	get_command() {
+	std::string	command;
 
-	cout << "phonebook > ";
-	getline(cin, command);
-	if (cin.eof()) {
+	std::cout << "phonebook > ";
+	std::getline(std::cin, command);
+	if (std::cin.eof()) {
 		exit(0);
 	}
 	return command;
 }
 
-bool	is_allowed_command(string command) {
+bool	is_allowed_command(std::string command) {
 	if (command == "EXIT") {
 		return true;
 	} else if (command == "ADD") {
@@ -24,7 +24,7 @@ bool	is_allowed_command(string command) {
 }
 
 int	main(void) {
-	string		command;
+	std::string		command;
 	Phonebook	phonebook;
 
 	while (true) {
@@ -36,13 +36,13 @@ int	main(void) {
 		} else if (command == "ADD") {
 
 			if (!phonebook.add_new_contact())
-				cout << "Error: too many contacts" << endl;
+				std::cout << "Error: too many contacts" << std::endl;
 
 		} else if (command == "SEARCH") {
 			phonebook.show_contacts();
 			phonebook.search_contact();
 		} else {
-			cout << "Error: unknown command, try ADD/EXIT/SEARCH" << endl;
+			std::cout << "Error: unknown command, try ADD/EXIT/SEARCH" << std::endl;
 		}
 	}
 	return 0;
