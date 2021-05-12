@@ -1,7 +1,7 @@
 NAME = phonebook
 FLAGS = -Wall -Wextra -Werror
-SRC = Contact.class.cpp Phonebook.class.cpp main.cpp
-INC = Contact.class.hpp Phonebook.class.hpp
+SRC = Contact.cpp Phonebook.cpp main.cpp
+INC = Contact.hpp Phonebook.hpp
 OBJ = $(SRC:.cpp=.o)
 
 RED = \033[31m

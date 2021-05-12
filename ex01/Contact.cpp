@@ -1,4 +1,4 @@
-#include "Contact.class.hpp"
+#include "Contact.hpp"
 
 string	Contact::_fields[11] = {
 	"first name",

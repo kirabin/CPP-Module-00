@@ -3,7 +3,7 @@
 # include <iostream>
 # include <string.h>
 # include <iomanip>
-# include "Contact.class.hpp"
+# include "Contact.hpp"
 
 using std::cout;
 using std::cin;

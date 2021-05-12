@@ -1,5 +1,5 @@
-#include "Phonebook.class.hpp"
-#include "Contact.class.hpp"
+#include "Phonebook.hpp"
+#include "Contact.hpp"
 
 string	get_command() {
 	string	command;

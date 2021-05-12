@@ -1,4 +1,4 @@
-#include "Phonebook.class.hpp"
+#include "Phonebook.hpp"
 
 Phonebook::Phonebook() : contacts_number(0) {}
 
