@@ -26,7 +26,7 @@ void	Phonebook::search_contact() {
 
 	std::cout << "Index: ";
 	std::cin >> index;
-	if (!std::cin.fail() && index < this->contacts_number) {
+	if (!std::cin.fail() && index < this->contacts_number && index >= 0) {
 		this->contacts[index].show_all_info();
 	} else {
 		std::cout << "Error: " << ": no such index exists" << std::endl;
