@@ -12,17 +12,6 @@ std::string	get_command() {
 	return command;
 }
 
-bool	is_allowed_command(std::string command) {
-	if (command == "EXIT") {
-		return true;
-	} else if (command == "ADD") {
-		return true;
-	} else if (command == "SEARCH") {
-		return true;
-	}
-	return false;
-}
-
 int	main(void) {
 	std::string		command;
 	Phonebook	phonebook;
